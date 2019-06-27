@@ -1,16 +1,16 @@
 
 from abc import ABC, abstractmethod
 
-class CSVError(Exception):
+class DataSourceError(Exception):
    """Base class for other exceptions"""
    pass
 
 
-class FeatureError(Error):
+class FeatureError(DataSourceError):
    """Raised when trajectory is missing required feature"""
    pass
 
-class DataError(Error):
+class DataError(DataSourceError):
    """Raised when data is missing required feature"""
    pass
 

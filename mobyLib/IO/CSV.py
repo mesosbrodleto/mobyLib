@@ -21,7 +21,7 @@ class Trajectory(Trajectory):
             self.check_mobilityData([point],self.template)
 
         if not skip_ordering :
-            input_data = sorted(input_data, key = lambda x: (x[self.template['uid'],
+            input_data = sorted(input_data, key = lambda x: (x[self.template['uid']],
                                                             x[self.template['ts']]))
         trajectory = []
         user = None
@@ -171,7 +171,7 @@ class Trajectory(Trajectory):
         with open(output) as f:
             header = "uid,tid,lat,lon,ts"
             additional_keys = sorted([k for k in trajectory['features'] if k not in ['uid','tid']])
-            header + = ",".join(additional_keys)
+            header += ",".join(additional_keys)
             for tn, trajectory in enumerate(trajectory_data):
                 #format csv string
                 user_id = trajectory['features']['uid']
