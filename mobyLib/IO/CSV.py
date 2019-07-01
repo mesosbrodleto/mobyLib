@@ -196,3 +196,4 @@ class Trajectory(Trajectory):
         self.input_file = file_path
         self.template = template
         self.separator = separator
+        print (template)
