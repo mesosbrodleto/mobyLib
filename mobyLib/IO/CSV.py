@@ -81,7 +81,7 @@ class Trajectory(Trajectory):
 
         """
 
-        if not super().check_mobilityData(template):
+        if not super().check_mobilityData([], template):
             #checking for required features
             raise DataError("missing required features (uid,lat,lon,ts)")
 
