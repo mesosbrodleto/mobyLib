@@ -16,10 +16,10 @@ class Trajectory(Trajectory):
             input_data: file cursor
         """
 
-        input_data = [x.split(self.separator) for x in open(self.input_file).readlines()]
+        point_data = [x.split(self.separator) for x in open(self.input_file).readlines()]
         #check points for error
         for point in point_data:
-            self.check_mobilityData([point],self.template) 
+            self.check_mobilityData([point],self.template)
 
         if not skip_ordering :
             input_data = sorted(input_data, key = lambda x: (x[self.template['uid']],
