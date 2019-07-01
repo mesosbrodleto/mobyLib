@@ -8,7 +8,7 @@ from datetime import datetime
 
 class Trajectory(Trajectory):
 
-    def create_trajectory(self,input_data,stop_param, time_format, skip_ordering = False, store = False):
+    def create_trajectory(self,stop_param, time_format, skip_ordering = False, store = False):
         """
         trajectory creation from input CSV file
 
@@ -16,9 +16,10 @@ class Trajectory(Trajectory):
             input_data: file cursor
         """
 
+        input_data = [x.split(self.separator) for x in open(self.input_file).readlines()]
         #check points for error
         for point in point_data:
-            self.check_mobilityData([point],self.template)
+            self.check_mobilityData([point],self.template) 
 
         if not skip_ordering :
             input_data = sorted(input_data, key = lambda x: (x[self.template['uid']],
@@ -191,6 +192,7 @@ class Trajectory(Trajectory):
 
 
 
-    def __init__(self, file_path, template):
+    def __init__(self, file_path, separator, template):
         self.input_file = file_path
         self.template = template
+        self.separator = separator
