@@ -22,7 +22,8 @@ class Trajectory(ABC):
     Abstract class for Trajectory document.
 
     A trajectory is a JSON document,
-    MobyLib allows for custom defintion of trajectory document format
+    MobyLib define a flexible format for trajectory document, with some required field and letting the user
+    extend the format to fit particular needs.
 
     A possible format for Trajectory document is the following:
 
